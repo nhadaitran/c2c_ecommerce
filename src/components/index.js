@@ -1,0 +1,9 @@
+export {default as Navbar} from './Navbar/Navbar';
+export {default as Footer} from './Footer/Footer';
+export {default as Products} from './Products/Products';
+export {default as Fav} from './Fav/Fav';
+export {default as Checkout} from './CheckoutForm/Checkout/Checkout';
+export {default as ProductSite} from './Products/ProductSite/ProductSite';
+export {default as Slideshow} from './Slideshow/Slideshow';
+export {default as PersonalPage} from './PersonalPage/PersonalPage';
+export {default as Category} from './Category/Category';
