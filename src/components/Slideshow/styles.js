@@ -1,10 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({    
-    carousel: {                
-        
-         height: '90%',       
+    carousel: {                    
+         height: '100%',       
         width: '100%',
-        maxWidth: 1000,                        
+                                
         [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {          
           marginLeft: 'auto',
           marginRight: 'auto',
@@ -12,8 +11,7 @@ export default makeStyles((theme) => ({
     },
     carouselInner: {        
         alignItems: 'center',
-        width: '100%',        
-        minHeight: 300,
+        width: '100%',                
         height: '100%',        
         backgroundPosition: 'center',        
         backgroundRepeat: 'no-repeat',

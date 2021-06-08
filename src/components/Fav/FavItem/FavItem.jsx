@@ -14,7 +14,7 @@ const FavItem = ({item,  onRemoveFav}) => {
                 <Typography className={classes.cardTitle} component={Link} to ="/product" variant='subtitle1' color="primary" >{item.name}</Typography>                
             </CardContent>
             <CardActions className={classes.cardActions}>
-            <Button  className={classes.buttons} component={Link} to="/checkout" type='button' variant='contained' color='primary'>{item.line_total.formatted_with_symbol}</Button>
+            <Button  className={classes.buttons} component={Link} to="/checkout" type='button' variant='contained' color='primary'> <Typography className={classes.cardTitle}>{item.line_total.formatted_with_symbol}</Typography></Button>
                 <IconButton color="secondary" onClick={() =>onRemoveFav(item.id)}><DeleteForever/></IconButton>                
             </CardActions>
         </Card>

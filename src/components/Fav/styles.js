@@ -2,20 +2,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   layout: {
-    paddingTop:"1%",
-    minHeight:'683px',
-    backgroundColor:'white',
-    width: 'auto',
+    paddingTop:"1%",    
+    minHeight:'90vh',
+    backgroundColor:'white',    
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 1000 ,
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {      
       marginLeft: 'auto',
       marginRight: 'auto',
     },        
   },
   emptyButton: {
-    minWidth: '150px',
+    minWidth: '5%',
     [theme.breakpoints.down('xs')]: {
       marginBottom: '5px',
     },
@@ -28,7 +26,7 @@ export default makeStyles((theme) => ({
   },
   cardDetails: {
     display: 'flex',
-    marginTop: '10%',    
+    marginTop:'2%',
     width: '100%',    
     justifyContent: 'space-between',        
     paddingBottom: '2%',
