@@ -17,10 +17,10 @@ const Product = ({product,onAddToFav}) => {
                     </Typography>                                        
                 </div>                
             </CardContent>
-            <CardActions  className={classes.CardActions}>
+            <CardActions >
             <Typography variant="subtitle2" color="inherit " className={classes.typography} >Danh mục</Typography>
                 <IconButton aria-label="Add to Favorite" onClick ={()=> onAddToFav(product.id,1)}>
-                    <FavoriteBorder fontSize="small" />
+                    <FavoriteBorder fontSize="small"  />
                 </IconButton>
                 <Typography variant="subtitle2" color="secondary" className={classes.typography} >{product.price.formatted_with_symbol}</Typography>                           
             </CardActions>

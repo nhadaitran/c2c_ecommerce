@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, Container, Grid, Box, InputBase, IconButton} from '@material-ui/core';
+import {Typography, Grid, Box, InputBase,AppBar, Toolbar, Button} from '@material-ui/core';
 import useStyles from './styles';
 import {Link} from 'react-router-dom';
 import logo from '../../assets/LogoSTU.png';
@@ -25,18 +25,18 @@ function Copyright() {
 export default function StickyFooter() {
   const classes = useStyles();
 
-  return (    
-    <Typography component="footer" className={classes.root}>
-    <Container className={classes.container}>
-      <Grid container spacing={10}>
-        <Grid item xs={6} sm={4} md={3}>
+  return (        
+      <AppBar className={classes.footer} position="relative" color="" elevation={0}>
+        <Toolbar>
+      <Grid container justify="center" >
+        <Grid item xs={6} sm={4} md={2} >
           <Grid
             container
             direction="raw"            
             className={classes.iconsWrapper}
             spacing={2}
           >            
-              <img src={logo} alt="logo" width="60%" height="100%"/>          
+              <img src={logo} alt="logo" width="50%" height="80%"/>          
             <Grid item className={classes.icons}>
               <a href="https://facebook.com/" className={classes.icon}>                            
               <img src={Facebook} width="100%" height="100%" alt="Facebook"/>
@@ -53,10 +53,10 @@ export default function StickyFooter() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <Typography variant="subtitle1"  gutterBottom className={classes.typography} align="center">
-            Hỗ trợ
-          </Typography>
+        <Grid item xs={6} sm={4} md={2} className={classes.infoResponsive}>
+        <Button size='small'  variant='oulined' color='primary' className={classes.buttonTitle}  >                
+                <Typography color='inherit'>Hỗ Trợ </Typography>            
+            </Button>
           <ul className={classes.list}>
             <li className={classes.listItem}>
               <Link href="#"className={classes.item} >Trung tâm hỗ trợ</Link>
@@ -77,10 +77,10 @@ export default function StickyFooter() {
           </ul>
         </Grid>
         
-        <Grid item xs={6} sm={4} md={3}>
-          <Typography variant="subtitle1"  gutterBottom className={classes.typography} align="center">
-            Về chúng tôi
-          </Typography>
+        <Grid item xs={6} sm={4} md={2} className={classes.infoResponsive}>
+        <Button size='small'  variant='oulined' color='primary' className={classes.buttonTitle}  >                
+                <Typography color='inherit'>Về chúng tôi </Typography>            
+            </Button>
           <ul className={classes.list}>
             <li className={classes.listItem}>
               <Link href="#"className={classes.item} >Giới thiệu</Link>
@@ -97,21 +97,27 @@ export default function StickyFooter() {
           </ul>
         </Grid>
       
-        <Grid item xs={6} sm={8} md={3}>
+        <Grid item xs={6} sm={4} md={2} className={classes.emailResponsive}>
           <Typography variant="h5" gutterBottom >
            Đăng ký nhận tin
           </Typography>
           <Typography variant="subtitle2" color="textSecondary" gutterBottom >
             Đăng ký nhận tin tức khuyến mãi cũng như thông tin về sản phẩm của bạn
-          </Typography>          
-            <InputBase 
+          </Typography> 
+          <div className={classes.email}>
+            <div className={classes.sendIcon}>
+              <Send />
+            </div>
+            <InputBase
               placeholder="Email của bạn"
-              className={classes.inputRoot}              
+              classes={{
+                root: classes.inputRoot
+              }}              
             />
-          <IconButton><Send fontSize='large' width="100%" height="100%" alt="Mail"  color='primary' /></IconButton>
+          </div>              
         </Grid>          
-      </Grid>
-    </Container>
-  </Typography>
+      </Grid>    
+      </Toolbar>
+      </AppBar>
   );
 }

@@ -4,15 +4,11 @@ export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor:'white',            
-    width: 'auto',    
+    backgroundColor:'white',                
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 1000 ,
+      width: '150vh' ,
       marginLeft: 'auto',
       marginRight: 'auto',
-    },
-  },
-  root: {
-    flexGrow: 1,
+    },    
   },
 }));

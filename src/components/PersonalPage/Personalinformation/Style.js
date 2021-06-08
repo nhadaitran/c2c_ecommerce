@@ -23,10 +23,9 @@ export default makeStyles(() => ({
         background: 'blue',
         borderRadius: '10px',
         width: 'auto',
-        margin: '10px',
-        paddingLeft: '10px',
-        float: 'right',
-        marginLeft: '30px'
+        margin: '3%',
+        paddingLeft: '3%',
+        float: 'right',        
     },
     titleRight: {
         fontSize: '15px',
@@ -39,6 +38,6 @@ export default makeStyles(() => ({
 
     },
     table: {
-        borderSpacing: '50px',
+        borderSpacing: '10%',
     }
 }));

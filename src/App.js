@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Products, Navbar, Footer, Fav, Checkout, ProductSite, PersonalPage, Category, Slideshow } from './components';
+import { Products, Navbar, Footer, Fav, ProductSite, PersonalPage, Category, Slideshow, SignInForm, SignUpForm, CheckoutInfo, CheckoutMethod, CheckoutSuccess, EditProfile, AddProduct, ChangeProduct, ListProduct, News } from './components';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { commerce } from './lib/commerce';
+import { ChatEngine} from 'react-chat-engine';
 import { makeStyles } from '@material-ui/core/styles';
-
+import "./App.css";
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor:
-        theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],        
+        backgroundColor: theme.palette.grey[100] 
+    },
+    slide:{
+        height:'95vh',        
     },
   }));
 
 const App = () => {
-    const classes = useStyles();
+    const classes = useStyles();    
     const [products, setProducts] = useState([]);
     const [cart,setFav] = useState({});     
     const fetchProducts = async () => {
@@ -24,7 +27,7 @@ const App = () => {
     const fetchFav = async () => {
         setFav(await commerce.cart.retrieve());
     }
-
+    
     const handleAddToFav = async (productId, quantity) => {
         const {cart} = await commerce.cart.add(productId,quantity)
 
@@ -46,19 +49,24 @@ const App = () => {
     useEffect(() => {
         fetchProducts();
         fetchFav();
-    }, []);
-
-    console.log(cart);
+    }, []);                
 
     return (
         <Router>
                 <div className={classes.root}>
                 <Navbar totalItems={cart.total_items} />                
                 <Switch>
-                    <Route exact path='/'>                                                            
-                    <Slideshow />                                        
+                    <Route exact path='/signin'>
+                        <SignInForm/>
+                    </Route>
+                    <Route exact path='/signup'>
+                        <SignUpForm/>
+                    </Route>
+                    <Route exact path='/'>             
+                    <div className={classes.slide} >
+                    <Slideshow /></div> 
                     <Category/>
-                        <Products products={products} onAddToFav={handleAddToFav } />
+                    <Products products={products} onAddToFav={handleAddToFav } />
                     </Route>
                     <Route exact path='/fav'>
                         <Fav cart={cart}                         
@@ -66,15 +74,45 @@ const App = () => {
                         handleEmptyFav={handleEmptyFav} 
                         />
                     </Route>    
-                    <Route exact path="/checkout">
-                        <Checkout cart={cart} />
-                     </Route>    
                      <Route exact path="/product">
                         <ProductSite />
                      </Route>      
-                     <Route exact path="/personalPage">
+                     <Route exact path="/profile">
                         <PersonalPage />
-                     </Route>                                                          
+                     </Route>                                   
+                     <Route exact path="/messages">                                                             
+                     <ChatEngine
+                        height='90vh'
+                        userName={localStorage.getItem('username')}
+                        userSecret={localStorage.getItem('password')}
+                        projectID='f1bd45bd-ac81-4a7c-8ccf-f28ec7d7fe1d'                        
+                        onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
+                    />
+                    </Route>     
+                    <Route exact path="/checkout">
+                        <CheckoutInfo />
+                     </Route>    
+                     <Route exact path="/billinfo">
+                        <CheckoutMethod />
+                     </Route>        
+                     <Route exact path="/success">
+                        <CheckoutSuccess />
+                     </Route>              
+                    <Route exact path="/editprofile">                    
+                    <EditProfile />
+                     </Route>        
+                     <Route exact path="/addproduct">                    
+                    <AddProduct />
+                     </Route>        
+                     <Route exact path="/editproduct">                    
+                    <ChangeProduct />
+                     </Route>        
+                     <Route exact path="/mall">                    
+                    <ListProduct />
+                     </Route>        
+                     <Route exact path="/news">                    
+                    <News />
+                     </Route>    
                 </Switch>
                 <Footer />
             </div>

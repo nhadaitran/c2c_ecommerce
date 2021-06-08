@@ -1,15 +1,11 @@
 import { makeStyles, fade } from '@material-ui/core/styles';
 const drawerWidth = 0;
 
-export default makeStyles((theme) => ({
+export default makeStyles((theme) => ({  
   appBar: {    
     boxShadow: 'none',
     borderBottom: '1px solid rgba(0, 0, 0, 0.3)',
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
-    maxHeight:'100%',
+    border:'5px',
   },
 
   title: {
@@ -17,30 +13,70 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
+    margin:'2%',
+    "&:hover": {      
+      borderBottom: 'blue solid 2px',
+      color: 'green',
+      background: 'white',
   },
-  image: {
-    marginRight: '10px',
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  grow: {
-    flexGrow: 1,
+  image: {
+    marginRight:'5%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
+  leftSide:{
+    flex: '20%',
+    display: 'flex',
+    justifyContent: 'flex-begin',
+    alignItems: 'center',
+    [theme.breakpoints.up('md')]: {
+      flex: '40%',
+    },
+  },
+
+  rightSide:{
+    flex: '80%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    [theme.breakpoints.up('md')]: {
+      flex: '60%',
+    },    
+  },
+
+  button: {
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+    display:'none',
+  },
+    menuAppbar: {
+      margin:'auto',
+    [theme.breakpoints.up('md')]: {
+      display:'none',
+    },
+    display: 'flex',
+  },
+
   search: {
     position: 'relative',
-    border: '1px solid',
-    borderRadius: theme.shape.borderRadius,
+    border: '1px solid rgba(0, 0, 0, 0.1)',
+    borderRadius: '20px',
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.black, 0.05),
     },
     marginLeft: 0,
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    maxHeight: 'auto',
+    [theme.breakpoints.up('md')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
@@ -55,8 +91,14 @@ export default makeStyles((theme) => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
-    paddingLeft: `25%`,
+    color: 'inherit',    
+    padding: theme.spacing(1, 1, 1, 0),    
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
   },
 
 }));
