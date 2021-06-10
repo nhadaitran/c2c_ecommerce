@@ -28,8 +28,7 @@ export default function SignInForm() {
     else{
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);          
-  }
-  window.location.reload();
+  }  
     // const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
     // try {      
     //   await axios.post('https://api.chatengine.io/chats', { headers: authObject });  
@@ -92,7 +91,8 @@ export default function SignInForm() {
               variant="contained"
               color="primary"              
               className={classes.submit}                
-              onClick={handleSubmit}                    
+              onClick={handleSubmit}          
+              component={Link} to =  '/'
             >
               Đăng nhập              
             </Button>
