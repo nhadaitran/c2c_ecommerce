@@ -18,3 +18,5 @@ export {default as CheckoutSuccess} from './CheckoutForm/CheckoutSuccess/Checkou
 export {default as EditProfile} from './Edit/EditProfile/EditProfile';
 
 export {default as News} from './News/News';
+export {default as Popup} from './Popup/Popup';
+export {default as PagesBtn} from './AllPageButton/PagesBtn';

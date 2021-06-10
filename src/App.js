@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Products, Navbar, Footer, Fav, ProductSite, PersonalPage, Category, Slideshow, SignInForm, SignUpForm, CheckoutInfo, CheckoutMethod, CheckoutSuccess, EditProfile, AddProduct, ChangeProduct, ListProduct, News } from './components';
+import { Products, Navbar, Footer, Fav, ProductSite, PersonalPage, Category, Slideshow, SignInForm, SignUpForm, CheckoutInfo, CheckoutMethod, CheckoutSuccess, EditProfile, AddProduct, ChangeProduct, ListProduct, News, Popup, PagesBtn } from './components';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import ad from './assets/ad.jpg'
 import { commerce } from './lib/commerce';
 import { ChatEngine} from 'react-chat-engine';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const App = () => {
+    var faker = require('faker/locale/vi');
     const classes = useStyles();    
     const [products, setProducts] = useState([]);
     const [cart,setFav] = useState({});     
@@ -101,7 +103,8 @@ const App = () => {
                     <Route exact path="/editprofile">                    
                     <EditProfile />
                      </Route>        
-                     <Route exact path="/addproduct">                    
+                     <Route exact path="/addproduct">
+                     <Popup urlImage={faker.image.image()}/>
                     <AddProduct />
                      </Route>        
                      <Route exact path="/editproduct">                    
@@ -114,6 +117,7 @@ const App = () => {
                     <News />
                      </Route>    
                 </Switch>
+                <PagesBtn/>
                 <Footer />
             </div>
         </Router>
