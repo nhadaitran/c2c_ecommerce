@@ -28,6 +28,7 @@ export default function SignInForm() {
     else{
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);          
+    window.location.href='/';
   }  
     // const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
     // try {      
