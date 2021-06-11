@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Products, Navbar, Footer, Fav, ProductSite, PersonalPage, Category, Slideshow, SignInForm, SignUpForm, CheckoutInfo, CheckoutMethod, CheckoutSuccess, EditProfile, AddProduct, ChangeProduct, ListProduct, News, Popup, PagesBtn } from './components';
+import { Products, Navbar, Footer, Fav, ProductSite, PersonalPage, Category, Slideshow, SignInForm, SignUpForm, CheckoutInfo, CheckoutMethod, CheckoutSuccess, EditProfile, AddProduct, ChangeProduct, ListProduct, News, Popup, PagesBtn, StorePage } from './components';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import ad from './assets/ad.jpg'
 import { commerce } from './lib/commerce';
@@ -81,7 +81,10 @@ const App = () => {
                      </Route>      
                      <Route exact path="/profile">
                         <PersonalPage />
-                     </Route>                                   
+                     </Route>        
+                     <Route exact path="/store">
+                        <StorePage />
+                     </Route>                                 
                      <Route exact path="/messages">                                                             
                      <ChatEngine
                         height='90vh'

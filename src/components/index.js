@@ -11,12 +11,11 @@ export {default as SignUpForm} from './SignUpForm/SignUpForm';
 export{default as AddProduct} from './AddProduct/AddProduct';
 export{default as ChangeProduct} from './ChangeProduct/ChangeProduct';
 export{default as ListProduct} from './ListProduct/ListProduct'; 
-
 export {default as CheckoutInfo} from './CheckoutForm/CheckoutInfo/CheckoutInfo';
 export {default as CheckoutMethod} from './CheckoutForm/CheckoutMethod/CheckoutMethod';
 export {default as CheckoutSuccess} from './CheckoutForm/CheckoutSuccess/CheckoutSuccess';
 export {default as EditProfile} from './Edit/EditProfile/EditProfile';
-
+export {default as StorePage} from './PersonalPage/StorePage';
 export {default as News} from './News/News';
 export {default as Popup} from './Popup/Popup';
 export {default as PagesBtn} from './AllPageButton/PagesBtn';
